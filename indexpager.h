@@ -5,12 +5,16 @@
 #ifndef ECS_040_PROGRAM_08_INDEXPAGER_H_H
 #define ECS_040_PROGRAM_08_INDEXPAGER_H_H
 
+#include <map>
 #include "pager.h"
+
+using namespace std;
 
 class IndexPager : public Pager
 {
 private:
-
+  string str;
+  multimap<string, int> mmap;
 public:
   void read(istream &in);
   void ProcessKey(int key);
