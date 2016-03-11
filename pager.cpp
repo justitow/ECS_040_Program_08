@@ -4,52 +4,57 @@
 
 using namespace std;
 
-const string& Pager::IntToString(int num)
+const string& Pager::intToString(int num)
 {
   static string s;
   char buf[100];
   sprintf(buf, "%d", num);
   s = string(buf);
   return s;
-}  // IntToString()
+}  // intToString()
 
-void Pager::ProcessKey(int key)  // f = forward, b = back
+
+void Pager::processKey(int key)  // f = forward, b = back
 {
   if(key == 'f')
   {
-    TopLine += 20;
-    if(TopLine > (int) Text.size())
-      TopLine = Text.size();
-    WritePage();
+    topLine += 20;
+
+    if(topLine > (int) text.size())
+      topLine = text.size();
+    writePage();
   } // if key is 'f'
-  else
+  else // not 'f'
     if(key == 'b')
     {
-      TopLine -= 20;
-      if(TopLine < 0)
-        TopLine = 0;
-      WritePage();
+      topLine -= 20;
+
+      if(topLine < 0)
+        topLine = 0;
+
+      writePage();
     } // if key is 'b'
-}  // ProcessKey()
+}  // processKey()
+
 
 void Pager::read(istream &in)
 {
   string s;
 
   while(getline(in, s, '\n'))
-    Text.push_back(s);
+    text.push_back(s);
 }  // read()
 
 
-void Pager::WritePage()
+void Pager::writePage()
 {
-  int end = TopLine + 23;
+  int end = topLine + 23;
 
-  if(end > (int) Text.size())
-    end = Text.size();
+  if(end > (int) text.size())
+    end = text.size();
 
-  for(int i = TopLine; i < end; i++)
-    cout << Text[i] << endl;
-} // WritePage()
+  for(int i = topLine; i < end; i++)
+    cout << text[i] << endl;
+} // writePage()
 
 

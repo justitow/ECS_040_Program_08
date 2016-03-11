@@ -13,13 +13,19 @@ using namespace std;
 class IndexPager : public Pager
 {
 private:
+  int TopLine;
   string str;
-  multimap<string, int> mmap;
+protected:
+  vector<string> Text;
+  map<string, int> WordKey;
+  multimap<int, int> mmap;
 public:
-  void read(istream &in);
-  void ProcessKey(int key);
   IndexPager();
   ~IndexPager();
+  void CreatePage();
+  void read(istream &in);
+  void ProcessKey(int key);
+  void WriteIndex();
 
 };
 

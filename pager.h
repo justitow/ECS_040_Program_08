@@ -7,18 +7,19 @@
 
 using namespace std;
 
-class Pager {
-  int TopLine;
-  void WritePage();
+class Pager 
+{
+  int topLine;
+  void writePage();
 protected:
-  vector <string> Text;
-  const string& IntToString(int num);
+  vector <string> text;
+  const string& intToString(int num);
 public:
-  Pager():TopLine(0){}
+  Pager():topLine(0){}
   virtual ~Pager(){}
-  void ProcessKey(int key);  // f = forward, b = back
+  void processKey(int key);  // f = forward, b = back
   virtual void read(istream &in);
-};
+};  // class Pager
 
 #endif
 
