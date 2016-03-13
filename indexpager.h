@@ -22,12 +22,13 @@ protected:
 public:
   IndexPager();
   ~IndexPager();
-  void CreatePage();
+  void createPage();
   void read(istream &in);
-  void ProcessKey(int key);
-  void WriteIndex();
+  void processKey(int key);
+  void writeIndex();
+  string createString(const vector<int> &nums, ostringstream &os) const;
 
-};
+}; // IndexPager class
 
 
 #endif //ECS_040_PROGRAM_08_INDEXPAGER_H_H
